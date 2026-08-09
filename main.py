@@ -7,7 +7,7 @@ PEXELS_KEY = os.environ.get('PEXELS_KEY')
 PROMO = '\n\n📢 @shegftanekhabar'
 UA = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36'}
 
-# لیست سیاه - کلمات نامناسب فارسی و انگلیسی
+# ===== سیستم فیلتر قوی =====
 BLACKLIST_FA = [
     'سکس', 'سکسی', 'عریان', 'برهنه', 'پورن', 'مست', 'الکل', 'مواد مخدر',
     'تریاک', 'هروئین', 'شیشه', 'گل', 'عربده', 'فحش', 'لعنتی', 'گوه', 'کیری',
@@ -15,38 +15,53 @@ BLACKLIST_FA = [
     'کس', 'کیر', 'تخمی', 'حروم', 'حرامزاده', 'پدرسگ', 'مادرسگ', 'جنده',
     'فاحشه', 'خفه', 'بکیر', 'تخم', 'خارشهری', 'عوضی', 'آشغال', 'پتیاره',
     'مردار', 'لاشی', 'کثافت', 'کث', 'حرومزاده', 'بی‌شرف', 'بی‌پدر',
-    'کافر', 'مرتد', 'اسرائیل', 'صهیونیست', 'یهودی', 'بمب', 'ترور',
-    'انفجار', 'خون', 'قتل', 'کشتار', 'جنگ', 'شهید', 'شهادت',
+    'کافر', 'مرتد', 'صهیونیست', 'بمب', 'ترور', 'انفجار', 'خون', 'قتل', 'کشتار',
 ]
 BLACKLIST_EN = [
     'sex', 'sexy', 'porn', 'nude', 'naked', 'xxx', 'fuck', 'shit', 'ass',
     'bitch', 'dick', 'cock', 'pussy', 'boob', 'tits', 'weed', 'drug',
     'alcohol', 'beer', 'wine', 'vodka', 'kill', 'murder', 'terror',
     'bomb', 'gun', 'weapon', 'blood', 'death', 'dead', 'suicide',
-    'nazi', 'hitler', 'rape', 'violent', 'violence', 'war', 'israel',
-    'jewish', 'zionist', 'arab', 'muslim', 'islam', 'christian',
+    'nazi', 'hitler', 'rape', 'violent', 'violence', 'war',
 ]
 
-# ساب‌ردیت‌های امن (فقط محتوای تمیز)
+# ===== منابع =====
+NEWS_SOURCES = [
+    'https://www.isna.ir/rss',
+    'https://www.mehrnews.com/rss',
+    'https://www.irna.ir/rss',
+    'https://www.tasnimnews.com/fa/rss',
+    'https://www.farsnews.ir/rss',
+    'https://www.khabaronline.ir/rss',
+]
+
 SAFE_SUBS = {
     'facts': ['todayilearned', 'AskScience', 'space', 'science'],
     'jokes': ['Jokes', 'dadjokes', 'cleanjokes'],
     'world': ['worldnews', 'technology'],
 }
 
+CRYPTO_IDS = 'bitcoin,ethereum,tron,the-sandbox,axie-infinity,gala,decentraland'
+GAME_IDS = {'the-sandbox','axie-infinity','gala','decentraland'}
+NAMES = {
+    'bitcoin':'بیت‌کوین','ethereum':'اتریوم','tron':'ترون',
+    'the-sandbox':'سندباکس 🎮','axie-infinity':'اکسی اینفینیتی 🎮',
+    'gala':'گالا 🎮','decentraland':'دیسنترالند 🎮'
+}
+
 HOROSCOPES = {
-    'فروردین': '🔮 امروز یه فرصت غیرمنتظره سر راهت قرار می‌گیره. با دل جلو برو ولی عجله نکن. عدد شانس: ۷',
-    'اردیبهشت': '🔮 یه مکالمه مهم امروز می‌تونه مسیر هفته‌ت رو عوض کنه. صبور باش و گوش کن. عدد شانس: ۱۴',
-    'خرداد': '🔮 خلاقیتت امروز تو اوجه! هر ایده‌ای داری یادداشت کن، بعداً ارزشمند میشه. عدد شانس: ۳',
-    'تیر': '🔮 یه خبر مالی خوشحال‌کننده در راهه. مراقب خرج‌های اضافی باش. عدد شانس: ۲۲',
-    'مرداد': '🔮 امروز روز خوبیه برای شروع یه کار جدید. اعتماد به نفس داشته باش. عدد شانس: ۸',
-    'شهریور': '🔮 یه دوست قدیمی امروز بهت زنگ می‌زنه. خبر خوبی داره برات. عدد شانس: ۱۱',
-    'مهر': '🔮 تمرکز کن روی کارای مهم. حواست رو پرت نکن، موفقیت نزدیکه. عدد شانس: ۵',
-    'آبان': '🔮 احساساتت قویه امروز. ازشون استفاده کن برای تصمیم‌های مهم. عدد شانس: ۱۹',
-    'آذر': '🔮 سفر کوتاه یا یه تغییر مکان امروز برات مفیده. انرژیت بالا میره. عدد شانس: ۲',
-    'دی': '🔮 یه تصمیم مالی مهم امروز باید بگیری. با منطق جلو برو نه احساس. عدد شانس: ۱۶',
-    'بهمن': '🔮 امروز روز خوبیه برای یادگیری چیز جدید. ذهنت بازه. عدد شانس: ۹',
-    'اسفند': '🔮 یه ملاقات مهم امروز ممکنه اتفاق بیفته. آماده باش. عدد شانس: ۲۵',
+    'فروردین': '🔮 امروز یه فرصت غیرمنتظره سر راهت قرار می‌گیره. عدد شانس: ۷',
+    'اردیبهشت': '🔮 یه مکالمه مهم امروز می‌تونه مسیر هفته‌ت رو عوض کنه. عدد شانس: ۱۴',
+    'خرداد': '🔮 خلاقیتت امروز تو اوجه! هر ایده‌ای داری یادداشت کن. عدد شانس: ۳',
+    'تیر': '🔮 یه خبر مالی خوشحال‌کننده در راهه. عدد شانس: ۲۲',
+    'مرداد': '🔮 امروز روز خوبیه برای شروع یه کار جدید. عدد شانس: ۸',
+    'شهریور': '🔮 یه دوست قدیمی امروز بهت زنگ می‌زنه. عدد شانس: ۱۱',
+    'مهر': '🔮 تمرکز کن روی کارای مهم. موفقیت نزدیکه. عدد شانس: ۵',
+    'آبان': '🔮 احساساتت قویه امروز. عدد شانس: ۱۹',
+    'آذر': '🔮 سفر کوتاه امروز برات مفیده. عدد شانس: ۲',
+    'دی': '🔮 یه تصمیم مالی مهم امروز باید بگیری. عدد شانس: ۱۶',
+    'بهمن': '🔮 امروز روز خوبیه برای یادگیری چیز جدید. عدد شانس: ۹',
+    'اسفند': '🔮 یه ملاقات مهم امروز ممکنه اتفاق بیفته. عدد شانس: ۲۵',
 }
 
 LANDMARKS = [
@@ -141,7 +156,6 @@ def reddit_titles(category, n=10):
                            headers=UA, timeout=15)
             for c in r.json()['data']['children']:
                 title = c['data']['title']
-                # بررسی امنیت و اینکه NSFW نباشه
                 if not c['data'].get('over_18', False) and is_safe(title):
                     all_titles.append(title)
         except:
@@ -149,7 +163,7 @@ def reddit_titles(category, n=10):
     return all_titles
 
 def get_news(idx):
-    for url in ['https://www.isna.ir/rss','https://www.mehrnews.com/rss','https://www.irna.ir/rss','https://www.tasnimnews.com/fa/rss','https://www.farsnews.ir/rss','https://www.khabaronline.ir/rss']:
+    for url in NEWS_SOURCES:
         items = rss_titles(url)
         if items: return f'📰 {items[idx % len(items)]}' + PROMO
     return None
@@ -174,24 +188,22 @@ def get_health(idx):
 def get_crypto():
     try:
         r = requests.get('https://api.coingecko.com/api/v3/simple/price',
-            params={'ids':'bitcoin,ethereum,tron,the-sandbox,axie-infinity,gala,decentraland','vs_currencies':'usd','include_24hr_change':'true'},
+            params={'ids':CRYPTO_IDS,'vs_currencies':'usd','include_24hr_change':'true'},
             headers=UA, timeout=15)
         data = r.json()
         lines = ['💹 قیمت لحظه‌ای ارز دیجیتال:', '']
-        names = {'bitcoin':'بیت‌کوین','ethereum':'اتریوم','tron':'ترون','the-sandbox':'سندباکس 🎮','axie-infinity':'اکسی اینفینیتی 🎮','gala':'گالا 🎮','decentraland':'دیسنترالند 🎮'}
-        game_ids = {'the-sandbox','axie-infinity','gala','decentraland'}
         games_added = False
         for k, v in data.items():
             price = v.get('usd', 0)
             change = v.get('usd_24h_change', 0)
             emoji = '🟢' if change >= 0 else '🔴'
-            if k in game_ids and not games_added:
+            if k in GAME_IDS and not games_added:
                 lines.append('')
                 lines.append('🎮 توکن بازی‌های آنلاین:')
                 games_added = True
             fmt = '{:,.4f}' if price < 1 else '{:,.0f}'
-            lines.append(f'{emoji} {names.get(k,k)}: ${fmt.format(price)} ({change:+.1f}%)')
-        return '\n'.join(lines) + '\n\n#کریپتو' + PROMO
+            lines.append(f'{emoji} {NAMES.get(k,k)}: ${fmt.format(price)} ({change:+.1f}%)')
+        return '\n'.join(lines) + '\n\n#کریپتو #بازی' + PROMO
     except:
         return None
 
