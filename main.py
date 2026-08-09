@@ -7,31 +7,71 @@ PEXELS_KEY = os.environ.get('PEXELS_KEY')
 PROMO = '\n\n📢 @shegftanekhabar'
 UA = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36'}
 
+HOROSCOPES = {
+    'فروردین': '🔮 امروز یه فرصت غیرمنتظره سر راهت قرار می‌گیره. با دل جلو برو ولی عجله نکن. عدد شانس: ۷',
+    'اردیبهشت': '🔮 یه مکالمه مهم امروز می‌تونه مسیر هفته‌ت رو عوض کنه. صبور باش و گوش کن. عدد شانس: ۱۴',
+    'خرداد': '🔮 خلاقیتت امروز تو اوجه! هر ایده‌ای داری یادداشت کن، بعداً ارزشمند میشه. عدد شانس: ۳',
+    'تیر': '🔮 یه خبر مالی خوشحال‌کننده در راهه. مراقب خرج‌های اضافی باش. عدد شانس: ۲۲',
+    'مرداد': '🔮 امروز روز خوبیه برای شروع یه کار جدید. اعتماد به نفس داشته باش. عدد شانس: ۸',
+    'شهریور': '🔮 یه دوست قدیمی امروز بهت زنگ می‌زنه. خبر خوبی داره برات. عدد شانس: ۱۱',
+    'مهر': '🔮 تمرکز کن روی کارای مهم. حواست رو پرت نکن، موفقیت نزدیکه. عدد شانس: ۵',
+    'آبان': '🔮 احساساتت قویه امروز. ازشون استفاده کن برای تصمیم‌های مهم. عدد شانس: ۱۹',
+    'آذر': '🔮 سفر کوتاه یا یه تغییر مکان امروز برات مفیده. انرژیت بالا میره. عدد شانس: ۲',
+    'دی': '🔮 یه تصمیم مالی مهم امروز باید بگیری. با منطق جلو برو نه احساس. عدد شانس: ۱۶',
+    'بهمن': '🔮 امروز روز خوبیه برای یادگیری چیز جدید. ذهنت بازه. عدد شانس: ۹',
+    'اسفند': '🔮 یه ملاقات مهم امروز ممکنه اتفاق بیفته. آماده باش. عدد شانس: ۲۵',
+}
+
+LANDMARKS = [
+    ('تخت جمشید', 'Persepolis', 'شکوه ایران باستان، پایتخت تشریفاتی هخامنشیان. ساخته شده توسط داریوش بزرگ در ۵۱۸ قبل از میلاد.'),
+    ('میدان نقش جهان', 'Isfahan', 'قلب تپنده اصفهان، یکی از بزرگ‌ترین میدان‌های جهان. ساخته شده در دوره صفویه.'),
+    ('برج آزادی', 'Tehran tower', 'نماد پایتخت ایران، ساخته شده در سال ۱۳۵۰. ترکیبی از معماری هخامنشی و اسلامی.'),
+    ('باغ ارم شیراز', 'Shiraz garden', 'یکی از زیباترین باغ‌های ایرانی با درختان سرو کهنسال و عمارت قاجاری.'),
+    ('پل خواجو', 'Isfahan bridge', 'شاهکار معماری صفوی در اصفهان، جایی برای قدم زدن و آواز خواندن.'),
+    ('مسجد نصیرالملک', 'Pink Mosque', 'مسجد صورتی شیراز با شیشه‌های رنگی که رقص نور ایجاد می‌کنه.'),
+    ('کاخ گلستان', 'Golestan Palace', 'میراث جهانی یونسکو در تهران، اقامتگاه شاهان قاجار.'),
+    ('بازار تبریز', 'Tabriz bazaar', 'بزرگ‌ترین بازار سرپوشیده جهان و میراث جهانی یونسکو.'),
+    ('دریاچه ارومیه', 'Urmia lake', 'بزرگ‌ترین دریاچه داخلی ایران و دومین دریاچه آب شور جهان.'),
+    ('جنگل‌های هیرکانی', 'Hyrcanian forests', 'میراث جهانی یونسکو، جنگل‌های باستانی شمال ایران با قدمت ۵۰ میلیون سال.'),
+    ('چغازنبیل', 'Chogha Zanbil', 'معبد باستانی ایلامی در خوزستان، قدیمی‌ترین بنای ایران ثبت شده در یونسکو.'),
+    ('کویر لوت', 'Lut desert', 'گرم‌ترین نقطه زمین! ثبت شده به عنوان میراث جهانی یونسکو.'),
+    ('جزیره کیش', 'Kish island', 'مروارید خلیج فارس با سواحل بکر و مراکز خرید مدرن.'),
+    ('ماسوله', 'Masuleh', 'روستای پلکانی گیلان، معماری منحصر به فرد هزار ساله.'),
+    ('بم و ارگ تاریخی', 'Bam citadel', 'بزرگ‌ترین سازه خشتی جهان قبل از زلزله، در حال بازسازی.'),
+]
+
+HEALTH_SOURCES = ['https://salamatnews.com/rss']
+
+FACTS = [
+    '🐙 اختاپوس ۳ تا قلب داره و خونش آبیه!',
+    '🍯 عسل هرگز فاسد نمیشه؛ عسل ۳۰۰۰ ساله هنوز قابل خوردنه!',
+    '🌍 یه روز در سیاره زهره از یه سالش طولانی‌تره!',
+    '🦈 کوسه‌ها ۴۰۰ میلیون ساله، قبل از دایناسورها وجود داشتن!',
+    '🧠 مغز موقع خواب فعال‌تر از روزه؛ داره اطلاعات رو مرتب می‌کنه!',
+    '🐘 فیل‌ها تنها حیوونایی هستن که نمی‌تونن بپرن!',
+    '💧 فقط ۳ درصد از آب‌های زمین شیرینه!',
+    '🌙 ماه هر سال ۳.۸ سانتی‌متر از زمین دورتر میشه!',
+]
 POETRY = [
     '🌙 من از نهایت شب حرف می‌زنم\nمن از نهایت تاریکی\nو از نهایت شب حرف می‌زنم\n— فروغ فرخزاد',
     '🌙 بوی باران، بوی سبزه، بوی خاک\nشاخه‌های شسته، باران‌خورده، پاک\n— سهراب سپهری',
     '🌙 زندگی خالی نیست\nمهربانی هست، سیب هست، ایمان هست\n— سهراب سپهری',
     '🌙 من و انکار تو و این صدای باران\nکه می‌شنودش کسی که نیست\n— احمد شاملو',
     '🌙 از صدای سخن عشق ندیدم خوش‌تر\nیادگاری که در این گنبد دوار بماند\n— حافظ',
-    '🌙 چه خوش گفت آن شبی کز عشق می‌گفت\nکه عشق آسان نمود اول، ولی افتاد مشکل‌ها\n— حافظ',
-    '🌙 درخت دوستی بنشان که کام دل به بار آرد\nنهال دشمنی برکن که رنج بی‌شمار آرد\n— حافظ',
     '🌸 بنی‌آدم اعضای یکدیگرند\nکه در آفرینش ز یک گوهرند\n— سعدی',
     '🌸 توانا بود هر که دانا بود\nز دانش دل پیر برنا بود\n— فردوسی',
-    '🌸 میازار موری که دانه‌کش است\nکه جان دارد و جان شیرین خوش است\n— سعدی',
 ]
 RELIGIOUS = [
     '🕌 «إِنَّ مَعَ الْعُسْرِ يُسْرًا»\nهمانا با هر سختی، آسانی است.',
     '🕌 «وَمَن يَتَوَكَّلْ عَلَى اللَّهِ فَهُوَ حَسْبُهُ»\nهر که بر خدا توکل کند، او کفایتش می‌کند.',
     '🕌 امام علی (ع): «ارزش هر کس به نیکوکاری اوست.»',
     '🕌 پیامبر اکرم (ص): «لبخند تو در چهره برادرت، صدقه است.»',
-    '🕌 «الصَّبْرُ مِفتاحُ الفَرَجِ»\nصبر، کلید هر گشایشی است.',
 ]
 SATIRE = [
     '🎭 قیمت مرغ انقدر رفته بالا که حالا مرغ‌ها فکر می‌کنن برن بورس!',
     '🎭 تورم انقدر تیزه که حتی بادکنک‌ها هم از ما جلو می‌زنن!',
     '🎭 حقوقم انقدر کمه که حتی خودم هم نمی‌تونم استخدامش کنم!',
     '🎭 دلار انقدر رفته بالا که حالا داره به ما نگاه می‌کنه و می‌خنده!',
-    '🎭 رفتم رستوران، منو رو دیدم، گفتم یه لیوان اشک بدید، خودم تولید می‌کنم!',
 ]
 ENERGY = [
     '💪 زندگی مثل دوچرخه‌سواریه؛ برای حفظ تعادل باید حرکت کنی!',
@@ -39,44 +79,11 @@ ENERGY = [
     '⭐ رویاهات تاریخ انقضا ندارن؛ یه نفس عمیق بکش و دوباره شروع کن!',
     '🌈 بعد از هر طوفانی، رنگین‌کمان میاد؛ صبور باش!',
 ]
-COOKING = [
-    '🍳 نیمرو: روغن، تخم‌مرغ، نمک و فلفل. ساده‌ترین صبحانه دنیا!',
-    '🍲 قورمه‌سبزی: سبزی، گوشت، لیموعمانی و یه ذره زعفران. غذای ملی ما!',
-    '🥘 زرشک‌پلو با مرغ: برنج، زرشک، مرغ، زعفران. ساده و خوشمزه!',
-]
-MOVIES = [
-    '🎬 از «پایتخت» تا «زخم کاری»؛ سریال‌های ایرانی پر از شاهکارن!',
-    '🎬 سینمای ایران با اصغر فرهادی همیشه در سطح جهان درخشیده!',
-    '🍿 دنیای مارول و DC؛ ابرقهرمان‌هایی که باکس‌آفیس رو می‌ترکونن!',
-]
-BOOKS = [
-    '📚 «صد سال تنهایی» مارکز؛ شاهکار ادبیات جهان!',
-    '📚 «کلیدر» دولت‌آبادی؛ بلندترین رمان فارسی!',
-    '📚 «بوف کور» صادق هدایت؛ رمانی که هنوز مرموزه!',
-    '📚 «سمفونی مردگان» عباس معروفی؛ روایتی تکان‌دهنده!',
-]
-FACTS = [
-    '🐙 اختاپوس ۳ تا قلب داره و خونش آبیه!',
-    '🍯 عسل هرگز فاسد نمیشه؛ عسل ۳۰۰۰ ساله هنوز قابل خوردنه!',
-    '🌍 یه روز در سیاره زهره از یه سالش طولانی‌تره!',
-    '🦈 کوسه‌ها ۴۰۰ میلیون ساله، قبل از دایناسورها وجود داشتن!',
-    '🧠 مغز موقع خواب فعال‌تر از روزه؛ داره اطلاعات رو مرتب می‌کنه!',
-]
 HUMOR = [
     '😂 رفتم داروخانه گفتم یه چیز خوب برای سرماخوردگی بدید، گفت ۲۰۰ تومن! گفتم باشه، خودم خوب میشم!',
     '😂 دوستم گفت پول خوشبختی نمی‌آره، گفتم باشه پولت رو بده من تحمل می‌کنم!',
     '😂 مامانم گفت چرا لاغر شدی؟ گفتم مامان قیمت مرغ رو دیدی؟!',
     '😂 تنها ورزشی که استادم، ورزشِ از زیر کار در رفتنه!',
-]
-TECH = [
-    '🤖 هوش مصنوعی داره همه‌چیز رو عوض می‌کنه؛ آینده همین الان اینجاست!',
-    '📱 گوشی‌های تاشو؛ سامسونگ و هواوی در رقابت نفس‌گیر!',
-    '🚗 خودروهای برقی تسلا و BYD دارن بازار رو قبضه می‌کنن!',
-]
-SPORTS = [
-    '⚽ دربی پرسپولیس و استقلال؛ جنگ تمام‌عیار دو غول فوتبال ایران!',
-    '🏐 والیبال ایران؛ افتخارآفرین آسیا و جهان!',
-    '🥋 کشتی؛ ورزش ملی و مدال‌آور ایران!',
 ]
 WALL_TAGS = [('nature','طبیعت'),('mountain','کوه'),('ocean','دریا'),('forest','جنگل'),('flower','گل'),('sunset','غروب')]
 
@@ -129,11 +136,63 @@ def get_tech(idx):
     for url in ['https://www.zoomit.ir/feed','https://digiato.com/feed']:
         items = rss_titles(url)
         if items: return f'💻 {items[idx % len(items)]}\n\n#تکنولوژی' + PROMO
-    return f'💻 {pick([], idx, TECH)}\n\n#تکنولوژی' + PROMO
+    return None
 
 def get_sports(idx):
     items = rss_titles('https://www.varzesh3.com/rss')
-    return f'⚽ {pick(items, idx, SPORTS)}\n\n#ورزشی' + PROMO
+    if items: return f'⚽ {items[idx % len(items)]}\n\n#ورزشی' + PROMO
+    return None
+
+def get_health(idx):
+    for url in ['https://salamatnews.com/rss', 'https://www.salamat.ir/rss']:
+        items = rss_titles(url)
+        if items: return f'💊 {items[idx % len(items)]}\n\n#سلامتی' + PROMO
+    return None
+
+def get_mobile_trick(idx):
+    items = rss_titles('https://www.zoomit.ir/feed')
+    items = [t for t in items if any(k in t for k in ['ترفند','آموزش','چگونه','نکته','بررسی'])]
+    if items: return f'📱 {items[idx % len(items)]}\n\n#ترفند_موبایل' + PROMO
+    return None
+
+def get_crypto():
+    try:
+        r = requests.get('https://api.coingecko.com/api/v3/simple/price',
+            params={'ids':'bitcoin,ethereum,tron','vs_currencies':'usd','include_24hr_change':'true'},
+            headers=UA, timeout=15)
+        data = r.json()
+        lines = ['💹 قیمت لحظه‌ای ارز دیجیتال:', '']
+        names = {'bitcoin':'بیت‌کوین (BTC)','ethereum':'اتریوم (ETH)','tron':'ترون (TRX)'}
+        for k, v in data.items():
+            price = v.get('usd', 0)
+            change = v.get('usd_24h_change', 0)
+            emoji = '🟢' if change >= 0 else '🔴'
+            lines.append(f'{emoji} {names.get(k,k)}: ${price:,.0f} ({change:+.1f}%)')
+        return '\n'.join(lines) + '\n\n#کریپتو #ارزدیجیتال' + PROMO
+    except:
+        return None
+
+def get_horoscope():
+    from datetime import datetime
+    slot = int(time.time() // 86400)
+    signs = list(HOROSCOPES.keys())
+    sign = signs[slot % len(signs)]
+    return f'**فال امروز - {sign}**\n\n{HOROSCOPES[sign]}\n\n#فال #طالع_بینی' + PROMO
+
+def get_landmark(idx):
+    try:
+        fa_name, en_query, fa_desc = LANDMARKS[idx % len(LANDMARKS)]
+        r = requests.get('https://api.pexels.com/v1/search',
+            headers={'Authorization': PEXELS_KEY},
+            params={'query': en_query, 'per_page': 5, 'orientation': 'landscape'}, timeout=15)
+        photos = r.json().get('photos', [])
+        if photos:
+            p = photos[0]
+            caption = f'🌍 **{fa_name}**\n\n{fa_desc}\n\n📸 عکاس: {p.get("photographer","")}\n\n#گردشگری #ایرانگردی' + PROMO
+            return p['src']['large'], caption
+    except:
+        pass
+    return None, None
 
 def get_world(idx):
     items = rss_titles('https://www.theverge.com/rss/index.xml')
@@ -193,44 +252,89 @@ def get_wallpaper(idx):
         pass
     return None, None
 
-def send(msg, photo=None):
+def send(msg, photo=None, parse_mode='Markdown'):
     try:
         if photo:
             url = f'https://api.telegram.org/bot{BOT_TOKEN}/sendPhoto'
-            r = requests.post(url, json={'chat_id': CHANNEL_ID, 'photo': photo, 'caption': msg}, timeout=20)
+            r = requests.post(url, json={'chat_id': CHANNEL_ID, 'photo': photo, 'caption': msg, 'parse_mode': parse_mode}, timeout=20)
         else:
             url = f'https://api.telegram.org/bot{BOT_TOKEN}/sendMessage'
-            r = requests.post(url, json={'chat_id': CHANNEL_ID, 'text': msg}, timeout=20)
+            r = requests.post(url, json={'chat_id': CHANNEL_ID, 'text': msg, 'parse_mode': parse_mode}, timeout=20)
         print('Send:', r.status_code, r.json().get('ok'))
     except Exception as e:
         print('Send error:', e)
 
+def send_poll():
+    try:
+        polls = [
+            ('امروز حالت چطوره؟', ['عالی 😄','خوب 🙂','معمولی 😐','ناراحتم 😔']),
+            ('کدوم محتوا رو بیشتر دوست داری؟', ['اخبار','طنز','قیمت طلا','شعر','فال']),
+            ('برنامه تعطیلات بعدیت چیه؟', ['سفر','خونه استراحت','کار','مهمونی']),
+            ('صبحانه مورد علاقه‌ت؟', ['نیمرو','نون و پنیر','صبحانه انگلیسی','هیچی']),
+            ('بهترین اختراع بشر؟', ['اینترنت','گوشی','برق','چرخ']),
+            ('اگه یه ابرقدرت داشتی؟', ['پرواز','تله‌پورت','نامرئی شدن','خواندن ذهن']),
+            ('فصل مورد علاقه‌ت؟', ['بهار','تابستون','پاییز','زمستون']),
+            ('کتاب یا فیلم؟', ['کتاب','فیلم','هر دو','هیچکدوم']),
+        ]
+        slot = int(time.time() // 3600)
+        q, opts = polls[slot % len(polls)]
+        url = f'https://api.telegram.org/bot{BOT_TOKEN}/sendPoll'
+        r = requests.post(url, json={
+            'chat_id': CHANNEL_ID,
+            'question': q + '\n\n📢 @shegftanekhabar',
+            'options': opts,
+            'is_anonymous': False,
+        }, timeout=20)
+        print('Poll:', r.status_code)
+    except Exception as e:
+        print('Poll error:', e)
+
 def post(ctype, idx):
     print('Posting:', ctype)
-    if ctype == 'news':
-        t = get_news(idx)
-        if t: send(t)
-    elif ctype == 'gold':
-        t = get_gold()
-        if t: send(t)
-    elif ctype == 'tech': send(get_tech(idx))
-    elif ctype == 'sports': send(get_sports(idx))
-    elif ctype == 'world':
-        t = get_world(idx)
-        if t: send(t)
-    elif ctype == 'fact': send(get_fact(idx))
-    elif ctype == 'humor': send(get_joke(idx))
-    elif ctype == 'poetry': send(POETRY[idx % len(POETRY)] + '\n\n#شعر' + PROMO)
-    elif ctype == 'religious': send(RELIGIOUS[idx % len(RELIGIOUS)] + '\n\n#مذهبی' + PROMO)
-    elif ctype == 'satire': send(SATIRE[idx % len(SATIRE)] + '\n\n#طنز_اجتماعی' + PROMO)
-    elif ctype == 'energy': send(ENERGY[idx % len(ENERGY)] + '\n\n#انرژی_مثبت' + PROMO)
-    elif ctype == 'cooking': send(COOKING[idx % len(COOKING)] + '\n\n#آشپزی' + PROMO)
-    elif ctype == 'movies': send(MOVIES[idx % len(MOVIES)] + '\n\n#سینما' + PROMO)
-    elif ctype == 'books': send(BOOKS[idx % len(BOOKS)] + '\n\n#کتاب' + PROMO)
-    elif ctype == 'wallpaper':
-        photo, cap = get_wallpaper(idx)
-        if photo: send(cap, photo)
-        else: send(FACTS[idx % len(FACTS)] + '\n\n#دانستنی' + PROMO)
+    try:
+        if ctype == 'news':
+            t = get_news(idx)
+            if t: send(t)
+        elif ctype == 'gold':
+            t = get_gold()
+            if t: send(t)
+        elif ctype == 'crypto':
+            t = get_crypto()
+            if t: send(t)
+        elif ctype == 'tech':
+            t = get_tech(idx)
+            if t: send(t)
+        elif ctype == 'sports':
+            t = get_sports(idx)
+            if t: send(t)
+        elif ctype == 'health':
+            t = get_health(idx)
+            if t: send(t)
+        elif ctype == 'mobile_trick':
+            t = get_mobile_trick(idx)
+            if t: send(t)
+        elif ctype == 'world':
+            t = get_world(idx)
+            if t: send(t)
+        elif ctype == 'fact': send(get_fact(idx))
+        elif ctype == 'humor': send(get_joke(idx))
+        elif ctype == 'poetry': send(POETRY[idx % len(POETRY)] + '\n\n#شعر' + PROMO)
+        elif ctype == 'religious': send(RELIGIOUS[idx % len(RELIGIOUS)] + '\n\n#مذهبی' + PROMO)
+        elif ctype == 'satire': send(SATIRE[idx % len(SATIRE)] + '\n\n#طنز_اجتماعی' + PROMO)
+        elif ctype == 'energy': send(ENERGY[idx % len(ENERGY)] + '\n\n#انرژی_مثبت' + PROMO)
+        elif ctype == 'horoscope': send(get_horoscope())
+        elif ctype == 'landmark':
+            photo, cap = get_landmark(idx)
+            if photo: send(cap, photo)
+            else: send(ENERGY[idx % len(ENERGY)] + '\n\n#انرژی_مثبت' + PROMO)
+        elif ctype == 'wallpaper':
+            photo, cap = get_wallpaper(idx)
+            if photo: send(cap, photo)
+            else: send(FACTS[idx % len(FACTS)] + '\n\n#دانستنی' + PROMO)
+        elif ctype == 'poll':
+            send_poll()
+    except Exception as e:
+        print(f'Post error for {ctype}:', e)
 
 def main():
     if not (BOT_TOKEN and CHANNEL_ID and PEXELS_KEY):
@@ -239,11 +343,11 @@ def main():
     slot = int(time.time() // 1800)
     hour = datetime.now().hour
     if 6 <= hour < 12:
-        base = ['energy','news','gold','tech','sports','world','fact','wallpaper']
+        base = ['energy','news','gold','crypto','tech','sports','world','fact','landmark','poll']
     elif 12 <= hour < 18:
-        base = ['gold','news','humor','world','cooking','tech','sports','fact','movies','books']
+        base = ['gold','crypto','news','horoscope','humor','world','health','mobile_trick','tech','sports','fact','poll']
     else:
-        base = ['poetry','religious','satire','wallpaper','world','energy','humor','fact']
+        base = ['poetry','religious','satire','landmark','world','energy','humor','fact','crypto','poll']
     off = slot % len(base)
     for i in range(6):
         ctype = base[(off + i) % len(base)]
