@@ -7,6 +7,33 @@ PEXELS_KEY = os.environ.get('PEXELS_KEY')
 PROMO = '\n\n📢 @shegftanekhabar'
 UA = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36'}
 
+# لیست سیاه - کلمات نامناسب فارسی و انگلیسی
+BLACKLIST_FA = [
+    'سکس', 'سکسی', 'عریان', 'برهنه', 'پورن', 'مست', 'الکل', 'مواد مخدر',
+    'تریاک', 'هروئین', 'شیشه', 'گل', 'عربده', 'فحش', 'لعنتی', 'گوه', 'کیری',
+    'کون', 'ممه', 'سینه', 'باسن', 'شهوت', 'ارگاسم', 'جنسی', 'همجنس', 'لزبین',
+    'کس', 'کیر', 'تخمی', 'حروم', 'حرامزاده', 'پدرسگ', 'مادرسگ', 'جنده',
+    'فاحشه', 'خفه', 'بکیر', 'تخم', 'خارشهری', 'عوضی', 'آشغال', 'پتیاره',
+    'مردار', 'لاشی', 'کثافت', 'کث', 'حرومزاده', 'بی‌شرف', 'بی‌پدر',
+    'کافر', 'مرتد', 'اسرائیل', 'صهیونیست', 'یهودی', 'بمب', 'ترور',
+    'انفجار', 'خون', 'قتل', 'کشتار', 'جنگ', 'شهید', 'شهادت',
+]
+BLACKLIST_EN = [
+    'sex', 'sexy', 'porn', 'nude', 'naked', 'xxx', 'fuck', 'shit', 'ass',
+    'bitch', 'dick', 'cock', 'pussy', 'boob', 'tits', 'weed', 'drug',
+    'alcohol', 'beer', 'wine', 'vodka', 'kill', 'murder', 'terror',
+    'bomb', 'gun', 'weapon', 'blood', 'death', 'dead', 'suicide',
+    'nazi', 'hitler', 'rape', 'violent', 'violence', 'war', 'israel',
+    'jewish', 'zionist', 'arab', 'muslim', 'islam', 'christian',
+]
+
+# ساب‌ردیت‌های امن (فقط محتوای تمیز)
+SAFE_SUBS = {
+    'facts': ['todayilearned', 'AskScience', 'space', 'science'],
+    'jokes': ['Jokes', 'dadjokes', 'cleanjokes'],
+    'world': ['worldnews', 'technology'],
+}
+
 HOROSCOPES = {
     'فروردین': '🔮 امروز یه فرصت غیرمنتظره سر راهت قرار می‌گیره. با دل جلو برو ولی عجله نکن. عدد شانس: ۷',
     'اردیبهشت': '🔮 یه مکالمه مهم امروز می‌تونه مسیر هفته‌ت رو عوض کنه. صبور باش و گوش کن. عدد شانس: ۱۴',
@@ -23,69 +50,60 @@ HOROSCOPES = {
 }
 
 LANDMARKS = [
-    ('تخت جمشید', 'Persepolis', 'شکوه ایران باستان، پایتخت تشریفاتی هخامنشیان. ساخته شده توسط داریوش بزرگ در ۵۱۸ قبل از میلاد.'),
-    ('میدان نقش جهان', 'Isfahan', 'قلب تپنده اصفهان، یکی از بزرگ‌ترین میدان‌های جهان. ساخته شده در دوره صفویه.'),
-    ('برج آزادی', 'Tehran tower', 'نماد پایتخت ایران، ساخته شده در سال ۱۳۵۰. ترکیبی از معماری هخامنشی و اسلامی.'),
-    ('باغ ارم شیراز', 'Shiraz garden', 'یکی از زیباترین باغ‌های ایرانی با درختان سرو کهنسال و عمارت قاجاری.'),
-    ('پل خواجو', 'Isfahan bridge', 'شاهکار معماری صفوی در اصفهان، جایی برای قدم زدن و آواز خواندن.'),
-    ('مسجد نصیرالملک', 'Pink Mosque', 'مسجد صورتی شیراز با شیشه‌های رنگی که رقص نور ایجاد می‌کنه.'),
-    ('کاخ گلستان', 'Golestan Palace', 'میراث جهانی یونسکو در تهران، اقامتگاه شاهان قاجار.'),
-    ('بازار تبریز', 'Tabriz bazaar', 'بزرگ‌ترین بازار سرپوشیده جهان و میراث جهانی یونسکو.'),
-    ('دریاچه ارومیه', 'Urmia lake', 'بزرگ‌ترین دریاچه داخلی ایران و دومین دریاچه آب شور جهان.'),
-    ('جنگل‌های هیرکانی', 'Hyrcanian forests', 'میراث جهانی یونسکو، جنگل‌های باستانی شمال ایران با قدمت ۵۰ میلیون سال.'),
-    ('چغازنبیل', 'Chogha Zanbil', 'معبد باستانی ایلامی در خوزستان، قدیمی‌ترین بنای ایران ثبت شده در یونسکو.'),
-    ('کویر لوت', 'Lut desert', 'گرم‌ترین نقطه زمین! ثبت شده به عنوان میراث جهانی یونسکو.'),
-    ('جزیره کیش', 'Kish island', 'مروارید خلیج فارس با سواحل بکر و مراکز خرید مدرن.'),
-    ('ماسوله', 'Masuleh', 'روستای پلکانی گیلان، معماری منحصر به فرد هزار ساله.'),
-    ('بم و ارگ تاریخی', 'Bam citadel', 'بزرگ‌ترین سازه خشتی جهان قبل از زلزله، در حال بازسازی.'),
+    ('تخت جمشید', 'Persepolis', 'شکوه ایران باستان، پایتخت تشریفاتی هخامنشیان.'),
+    ('میدان نقش جهان', 'Isfahan', 'قلب تپنده اصفهان، یکی از بزرگ‌ترین میدان‌های جهان.'),
+    ('برج آزادی', 'Tehran tower', 'نماد پایتخت ایران.'),
+    ('باغ ارم شیراز', 'Shiraz garden', 'یکی از زیباترین باغ‌های ایرانی.'),
+    ('پل خواجو', 'Isfahan bridge', 'شاهکار معماری صفوی در اصفهان.'),
+    ('مسجد نصیرالملک', 'Pink Mosque', 'مسجد صورتی شیراز.'),
+    ('کاخ گلستان', 'Golestan Palace', 'میراث جهانی یونسکو در تهران.'),
+    ('بازار تبریز', 'Tabriz bazaar', 'بزرگ‌ترین بازار سرپوشیده جهان.'),
+    ('کویر لوت', 'Lut desert', 'گرم‌ترین نقطه زمین!'),
+    ('جنگل‌های هیرکانی', 'Hyrcanian forests', 'جنگل‌های باستانی شمال ایران.'),
+    ('ماسوله', 'Masuleh', 'روستای پلکانی گیلان.'),
 ]
 
-HEALTH_SOURCES = ['https://salamatnews.com/rss']
-
-FACTS = [
-    '🐙 اختاپوس ۳ تا قلب داره و خونش آبیه!',
-    '🍯 عسل هرگز فاسد نمیشه؛ عسل ۳۰۰۰ ساله هنوز قابل خوردنه!',
-    '🌍 یه روز در سیاره زهره از یه سالش طولانی‌تره!',
-    '🦈 کوسه‌ها ۴۰۰ میلیون ساله، قبل از دایناسورها وجود داشتن!',
-    '🧠 مغز موقع خواب فعال‌تر از روزه؛ داره اطلاعات رو مرتب می‌کنه!',
-    '🐘 فیل‌ها تنها حیوونایی هستن که نمی‌تونن بپرن!',
-    '💧 فقط ۳ درصد از آب‌های زمین شیرینه!',
-    '🌙 ماه هر سال ۳.۸ سانتی‌متر از زمین دورتر میشه!',
-]
 POETRY = [
-    '🌙 من از نهایت شب حرف می‌زنم\nمن از نهایت تاریکی\nو از نهایت شب حرف می‌زنم\n— فروغ فرخزاد',
-    '🌙 بوی باران، بوی سبزه، بوی خاک\nشاخه‌های شسته، باران‌خورده، پاک\n— سهراب سپهری',
+    '🌙 من از نهایت شب حرف می‌زنم\n— فروغ فرخزاد',
+    '🌙 بوی باران، بوی سبزه، بوی خاک\n— سهراب سپهری',
     '🌙 زندگی خالی نیست\nمهربانی هست، سیب هست، ایمان هست\n— سهراب سپهری',
-    '🌙 من و انکار تو و این صدای باران\nکه می‌شنودش کسی که نیست\n— احمد شاملو',
-    '🌙 از صدای سخن عشق ندیدم خوش‌تر\nیادگاری که در این گنبد دوار بماند\n— حافظ',
-    '🌸 بنی‌آدم اعضای یکدیگرند\nکه در آفرینش ز یک گوهرند\n— سعدی',
-    '🌸 توانا بود هر که دانا بود\nز دانش دل پیر برنا بود\n— فردوسی',
+    '🌸 بنی‌آدم اعضای یکدیگرند\n— سعدی',
+    '🌸 توانا بود هر که دانا بود\n— فردوسی',
 ]
 RELIGIOUS = [
     '🕌 «إِنَّ مَعَ الْعُسْرِ يُسْرًا»\nهمانا با هر سختی، آسانی است.',
-    '🕌 «وَمَن يَتَوَكَّلْ عَلَى اللَّهِ فَهُوَ حَسْبُهُ»\nهر که بر خدا توکل کند، او کفایتش می‌کند.',
     '🕌 امام علی (ع): «ارزش هر کس به نیکوکاری اوست.»',
     '🕌 پیامبر اکرم (ص): «لبخند تو در چهره برادرت، صدقه است.»',
 ]
 SATIRE = [
     '🎭 قیمت مرغ انقدر رفته بالا که حالا مرغ‌ها فکر می‌کنن برن بورس!',
     '🎭 تورم انقدر تیزه که حتی بادکنک‌ها هم از ما جلو می‌زنن!',
-    '🎭 حقوقم انقدر کمه که حتی خودم هم نمی‌تونم استخدامش کنم!',
-    '🎭 دلار انقدر رفته بالا که حالا داره به ما نگاه می‌کنه و می‌خنده!',
 ]
 ENERGY = [
     '💪 زندگی مثل دوچرخه‌سواریه؛ برای حفظ تعادل باید حرکت کنی!',
-    '🌟 هر طلوع خورشید یه فرصت جدیده؛ ازش استفاده کن!',
-    '⭐ رویاهات تاریخ انقضا ندارن؛ یه نفس عمیق بکش و دوباره شروع کن!',
-    '🌈 بعد از هر طوفانی، رنگین‌کمان میاد؛ صبور باش!',
+    '🌟 هر طلوع خورشید یه فرصت جدیده!',
+    '🌈 بعد از هر طوفانی، رنگین‌کمان میاد!',
 ]
-HUMOR = [
+HUMOR_SAFE = [
     '😂 رفتم داروخانه گفتم یه چیز خوب برای سرماخوردگی بدید، گفت ۲۰۰ تومن! گفتم باشه، خودم خوب میشم!',
     '😂 دوستم گفت پول خوشبختی نمی‌آره، گفتم باشه پولت رو بده من تحمل می‌کنم!',
     '😂 مامانم گفت چرا لاغر شدی؟ گفتم مامان قیمت مرغ رو دیدی؟!',
-    '😂 تنها ورزشی که استادم، ورزشِ از زیر کار در رفتنه!',
 ]
-WALL_TAGS = [('nature','طبیعت'),('mountain','کوه'),('ocean','دریا'),('forest','جنگل'),('flower','گل'),('sunset','غروب')]
+FACTS_SAFE = [
+    '🐙 اختاپوس ۳ تا قلب داره و خونش آبیه!',
+    '🍯 عسل هرگز فاسد نمیشه!',
+    '🌍 یه روز در سیاره زهره از یه سالش طولانی‌تره!',
+]
+WALL_TAGS = [('nature','طبیعت'),('mountain','کوه'),('ocean','دریا'),('forest','جنگل'),('flower','گل')]
+
+def is_safe(text):
+    if not text: return False
+    text_lower = text.lower()
+    for word in BLACKLIST_FA:
+        if word in text: return False
+    for word in BLACKLIST_EN:
+        if word in text_lower: return False
+    return True
 
 def clean(t):
     t = re.sub(r'<!\[CDATA\[(.*?)\]\]>', r'\1', t)
@@ -110,21 +128,25 @@ def rss_titles(url, n=15):
             m = re.search(r'<title[^>]*>(.*?)</title>', it, re.DOTALL)
             if m:
                 t = clean(m.group(1))
-                if t: out.append(t)
+                if t and is_safe(t): out.append(t)
         return out
     except:
         return []
 
-def reddit_titles(sub, n=15):
-    try:
-        r = requests.get(f'https://www.reddit.com/r/{sub}/hot.json?limit={n}', headers=UA, timeout=15)
-        return [c['data']['title'] for c in r.json()['data']['children']]
-    except:
-        return []
-
-def pick(items, idx, fallback):
-    if items: return items[idx % len(items)]
-    return fallback[idx % len(fallback)]
+def reddit_titles(category, n=10):
+    all_titles = []
+    for sub in SAFE_SUBS.get(category, ['todayilearned']):
+        try:
+            r = requests.get(f'https://www.reddit.com/r/{sub}/hot.json?limit={n}',
+                           headers=UA, timeout=15)
+            for c in r.json()['data']['children']:
+                title = c['data']['title']
+                # بررسی امنیت و اینکه NSFW نباشه
+                if not c['data'].get('over_18', False) and is_safe(title):
+                    all_titles.append(title)
+        except:
+            pass
+    return all_titles
 
 def get_news(idx):
     for url in ['https://www.isna.ir/rss','https://www.mehrnews.com/rss']:
@@ -144,15 +166,9 @@ def get_sports(idx):
     return None
 
 def get_health(idx):
-    for url in ['https://salamatnews.com/rss', 'https://www.salamat.ir/rss']:
+    for url in ['https://salamatnews.com/rss']:
         items = rss_titles(url)
         if items: return f'💊 {items[idx % len(items)]}\n\n#سلامتی' + PROMO
-    return None
-
-def get_mobile_trick(idx):
-    items = rss_titles('https://www.zoomit.ir/feed')
-    items = [t for t in items if any(k in t for k in ['ترفند','آموزش','چگونه','نکته','بررسی'])]
-    if items: return f'📱 {items[idx % len(items)]}\n\n#ترفند_موبایل' + PROMO
     return None
 
 def get_crypto():
@@ -162,60 +178,57 @@ def get_crypto():
             headers=UA, timeout=15)
         data = r.json()
         lines = ['💹 قیمت لحظه‌ای ارز دیجیتال:', '']
-        names = {'bitcoin':'بیت‌کوین (BTC)','ethereum':'اتریوم (ETH)','tron':'ترون (TRX)'}
+        names = {'bitcoin':'بیت‌کوین','ethereum':'اتریوم','tron':'ترون'}
         for k, v in data.items():
             price = v.get('usd', 0)
             change = v.get('usd_24h_change', 0)
             emoji = '🟢' if change >= 0 else '🔴'
             lines.append(f'{emoji} {names.get(k,k)}: ${price:,.0f} ({change:+.1f}%)')
-        return '\n'.join(lines) + '\n\n#کریپتو #ارزدیجیتال' + PROMO
+        return '\n'.join(lines) + '\n\n#کریپتو' + PROMO
     except:
         return None
 
 def get_horoscope():
-    from datetime import datetime
     slot = int(time.time() // 86400)
     signs = list(HOROSCOPES.keys())
     sign = signs[slot % len(signs)]
-    return f'**فال امروز - {sign}**\n\n{HOROSCOPES[sign]}\n\n#فال #طالع_بینی' + PROMO
+    return f'**فال امروز - {sign}**\n\n{HOROSCOPES[sign]}\n\n#فال' + PROMO
 
 def get_landmark(idx):
     try:
         fa_name, en_query, fa_desc = LANDMARKS[idx % len(LANDMARKS)]
         r = requests.get('https://api.pexels.com/v1/search',
             headers={'Authorization': PEXELS_KEY},
-            params={'query': en_query, 'per_page': 5, 'orientation': 'landscape'}, timeout=15)
+            params={'query': en_query, 'per_page': 5}, timeout=15)
         photos = r.json().get('photos', [])
         if photos:
             p = photos[0]
-            caption = f'🌍 **{fa_name}**\n\n{fa_desc}\n\n📸 عکاس: {p.get("photographer","")}\n\n#گردشگری #ایرانگردی' + PROMO
+            caption = f'🌍 **{fa_name}**\n\n{fa_desc}\n\n#گردشگری' + PROMO
             return p['src']['large'], caption
     except:
         pass
     return None, None
 
 def get_world(idx):
-    items = rss_titles('https://www.theverge.com/rss/index.xml')
-    if not items:
-        items = [translate(t) for t in reddit_titles('worldnews')]
+    items = [translate(t) for t in reddit_titles('world')]
+    items = [t for t in items if is_safe(t)]
     if items:
-        t = items[idx % len(items)]
-        if not any('\u0600' <= ch <= '\u06FF' for ch in t):
-            t = translate(t)
-        return f'🌍 {t}\n\n#جهان' + PROMO
+        return f'🌍 {items[idx % len(items)]}\n\n#جهان' + PROMO
     return None
 
 def get_fact(idx):
-    items = [t.replace('TIL ','') for t in reddit_titles('todayilearned')]
+    items = [translate(t.replace('TIL ','')) for t in reddit_titles('facts')]
+    items = [t for t in items if is_safe(t)]
     if items:
-        return f'🤔 آیا می‌دانستی؟ {translate(items[idx % len(items)])}\n\n#دانستنی' + PROMO
-    return f'🤔 {pick([], idx, FACTS)}\n\n#دانستنی' + PROMO
+        return f'🤔 آیا می‌دانستی؟ {items[idx % len(items)]}\n\n#دانستنی' + PROMO
+    return f'🤔 {FACTS_SAFE[idx % len(FACTS_SAFE)]}\n\n#دانستنی' + PROMO
 
 def get_joke(idx):
-    items = reddit_titles('oneliners')
+    items = [translate(t) for t in reddit_titles('jokes')]
+    items = [t for t in items if is_safe(t)]
     if items:
-        return f'😂 {translate(items[idx % len(items)])}\n\n#طنز' + PROMO
-    return f'😂 {pick([], idx, HUMOR)}\n\n#طنز' + PROMO
+        return f'😂 {items[idx % len(items)]}\n\n#طنز' + PROMO
+    return f'😂 {HUMOR_SAFE[idx % len(HUMOR_SAFE)]}\n\n#طنز' + PROMO
 
 def get_gold():
     try:
@@ -233,7 +246,7 @@ def get_gold():
             if coin: lines.append(f'💰 سکه امامی: {coin} تومان')
             if gold18: lines.append(f'✨ طلای ۱۸ عیار: {gold18} تومان')
             if dollar: lines.append(f'💵 دلار: {dollar} تومان')
-            return '\n'.join(lines) + '\n\n#طلا #سکه #ارز' + PROMO
+            return '\n'.join(lines) + '\n\n#طلا #سکه' + PROMO
     except:
         pass
     return None
@@ -247,19 +260,19 @@ def get_wallpaper(idx):
         photos = r.json().get('photos', [])
         if photos:
             p = photos[idx % len(photos)]
-            return p['src']['large'], f'🖼 والپیپر {fa}\n\n📸 عکاس: {p.get("photographer","")}\n\n#والپیپر' + PROMO
+            return p['src']['large'], f'🖼 والپیپر {fa}\n\n#والپیپر' + PROMO
     except:
         pass
     return None, None
 
-def send(msg, photo=None, parse_mode='Markdown'):
+def send(msg, photo=None):
     try:
         if photo:
             url = f'https://api.telegram.org/bot{BOT_TOKEN}/sendPhoto'
-            r = requests.post(url, json={'chat_id': CHANNEL_ID, 'photo': photo, 'caption': msg, 'parse_mode': parse_mode}, timeout=20)
+            r = requests.post(url, json={'chat_id': CHANNEL_ID, 'photo': photo, 'caption': msg, 'parse_mode': 'Markdown'}, timeout=20)
         else:
             url = f'https://api.telegram.org/bot{BOT_TOKEN}/sendMessage'
-            r = requests.post(url, json={'chat_id': CHANNEL_ID, 'text': msg, 'parse_mode': parse_mode}, timeout=20)
+            r = requests.post(url, json={'chat_id': CHANNEL_ID, 'text': msg, 'parse_mode': 'Markdown'}, timeout=20)
         print('Send:', r.status_code, r.json().get('ok'))
     except Exception as e:
         print('Send error:', e)
@@ -269,25 +282,21 @@ def send_poll():
         polls = [
             ('امروز حالت چطوره؟', ['عالی 😄','خوب 🙂','معمولی 😐','ناراحتم 😔']),
             ('کدوم محتوا رو بیشتر دوست داری؟', ['اخبار','طنز','قیمت طلا','شعر','فال']),
-            ('برنامه تعطیلات بعدیت چیه؟', ['سفر','خونه استراحت','کار','مهمونی']),
-            ('صبحانه مورد علاقه‌ت؟', ['نیمرو','نون و پنیر','صبحانه انگلیسی','هیچی']),
-            ('بهترین اختراع بشر؟', ['اینترنت','گوشی','برق','چرخ']),
-            ('اگه یه ابرقدرت داشتی؟', ['پرواز','تله‌پورت','نامرئی شدن','خواندن ذهن']),
+            ('برنامه تعطیلات بعدیت چیه؟', ['سفر','خونه','کار','مهمونی']),
             ('فصل مورد علاقه‌ت؟', ['بهار','تابستون','پاییز','زمستون']),
-            ('کتاب یا فیلم؟', ['کتاب','فیلم','هر دو','هیچکدوم']),
         ]
         slot = int(time.time() // 3600)
         q, opts = polls[slot % len(polls)]
         url = f'https://api.telegram.org/bot{BOT_TOKEN}/sendPoll'
         r = requests.post(url, json={
             'chat_id': CHANNEL_ID,
-            'question': q + '\n\n📢 @shegftanekhabar',
+            'question': q,
             'options': opts,
             'is_anonymous': False,
         }, timeout=20)
         print('Poll:', r.status_code)
-    except Exception as e:
-        print('Poll error:', e)
+    except:
+        pass
 
 def post(ctype, idx):
     print('Posting:', ctype)
@@ -310,9 +319,6 @@ def post(ctype, idx):
         elif ctype == 'health':
             t = get_health(idx)
             if t: send(t)
-        elif ctype == 'mobile_trick':
-            t = get_mobile_trick(idx)
-            if t: send(t)
         elif ctype == 'world':
             t = get_world(idx)
             if t: send(t)
@@ -330,7 +336,7 @@ def post(ctype, idx):
         elif ctype == 'wallpaper':
             photo, cap = get_wallpaper(idx)
             if photo: send(cap, photo)
-            else: send(FACTS[idx % len(FACTS)] + '\n\n#دانستنی' + PROMO)
+            else: send(FACTS_SAFE[idx % len(FACTS_SAFE)] + '\n\n#دانستنی' + PROMO)
         elif ctype == 'poll':
             send_poll()
     except Exception as e:
@@ -345,16 +351,16 @@ def main():
     if 6 <= hour < 12:
         base = ['energy','news','gold','crypto','tech','sports','world','fact','landmark','poll']
     elif 12 <= hour < 18:
-        base = ['gold','crypto','news','horoscope','humor','world','health','mobile_trick','tech','sports','fact','poll']
+        base = ['gold','crypto','news','horoscope','humor','world','health','tech','sports','fact','poll']
     else:
         base = ['poetry','religious','satire','landmark','world','energy','humor','fact','crypto','poll']
     off = slot % len(base)
-    for i in range(6):
+    for i in range(4):
         ctype = base[(off + i) % len(base)]
-        idx = int(time.time() // 300)
+        idx = int(time.time() // 420)
         post(ctype, idx)
-        if i < 5:
-            time.sleep(300)
+        if i < 3:
+            time.sleep(420)
 
 if __name__ == '__main__':
     main()
