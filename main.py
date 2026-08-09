@@ -149,7 +149,7 @@ def reddit_titles(category, n=10):
     return all_titles
 
 def get_news(idx):
-    for url in ['https://www.isna.ir/rss','https://www.mehrnews.com/rss']:
+    for url in ['https://www.isna.ir/rss','https://www.mehrnews.com/rss','https://www.irna.ir/rss','https://www.tasnimnews.com/fa/rss','https://www.farsnews.ir/rss','https://www.khabaronline.ir/rss']:
         items = rss_titles(url)
         if items: return f'📰 {items[idx % len(items)]}' + PROMO
     return None
@@ -174,16 +174,23 @@ def get_health(idx):
 def get_crypto():
     try:
         r = requests.get('https://api.coingecko.com/api/v3/simple/price',
-            params={'ids':'bitcoin,ethereum,tron','vs_currencies':'usd','include_24hr_change':'true'},
+            params={'ids':'bitcoin,ethereum,tron,the-sandbox,axie-infinity,gala,decentraland','vs_currencies':'usd','include_24hr_change':'true'},
             headers=UA, timeout=15)
         data = r.json()
         lines = ['💹 قیمت لحظه‌ای ارز دیجیتال:', '']
-        names = {'bitcoin':'بیت‌کوین','ethereum':'اتریوم','tron':'ترون'}
+        names = {'bitcoin':'بیت‌کوین','ethereum':'اتریوم','tron':'ترون','the-sandbox':'سندباکس 🎮','axie-infinity':'اکسی اینفینیتی 🎮','gala':'گالا 🎮','decentraland':'دیسنترالند 🎮'}
+        game_ids = {'the-sandbox','axie-infinity','gala','decentraland'}
+        games_added = False
         for k, v in data.items():
             price = v.get('usd', 0)
             change = v.get('usd_24h_change', 0)
             emoji = '🟢' if change >= 0 else '🔴'
-            lines.append(f'{emoji} {names.get(k,k)}: ${price:,.0f} ({change:+.1f}%)')
+            if k in game_ids and not games_added:
+                lines.append('')
+                lines.append('🎮 توکن بازی‌های آنلاین:')
+                games_added = True
+            fmt = '{:,.4f}' if price < 1 else '{:,.0f}'
+            lines.append(f'{emoji} {names.get(k,k)}: ${fmt.format(price)} ({change:+.1f}%)')
         return '\n'.join(lines) + '\n\n#کریپتو' + PROMO
     except:
         return None
