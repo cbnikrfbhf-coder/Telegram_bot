@@ -374,12 +374,13 @@ def main():
     else:
         base = ['poetry','religious','satire','landmark','world','energy','humor','fact','crypto','poll']
     off = slot % len(base)
-    for i in range(4):
+    # هر ۵ دقیقه یه پست، ۶ پست در هر اجرا
+    for i in range(6):
         ctype = base[(off + i) % len(base)]
-        idx = int(time.time() // 420)
+        idx = int(time.time() // 300)
         post(ctype, idx)
-        if i < 3:
-            time.sleep(420)
+        if i < 5:
+            time.sleep(300)
 
 if __name__ == '__main__':
     main()
