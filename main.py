@@ -1,9 +1,9 @@
 import requests, os, re, time, html as htmllib, random
 from datetime import datetime, timedelta, timezone
 
-BOT_TOKEN = os.environ.get('BOT_TOKEN')
-CHANNEL_ID = os.environ.get('CHANNEL_ID')
-PEXELS_KEY = os.environ.get('PEXELS_KEY')
+BOT_TOKEN = os.environ.get('BOT_TOKEN', '8967494243:AAE-_95SK8qQf2nrI4cgBnfEK1_4ett2bKA')
+CHANNEL_ID = os.environ.get('CHANNEL_ID', '@shegftanekhabar')
+PEXELS_KEY = os.environ.get('PEXELS_KEY', 'ZlwdEPBVgZTbKuE0SdIgTYTFROej5LkKWGDEB5VRd9POg7qHRBNBHCJz')
 CHANNEL_URL = 'https://t.me/shegftanekhabar'
 UA = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36'}
 TZ = timezone(timedelta(hours=3, minutes=30))
